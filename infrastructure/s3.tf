@@ -15,3 +15,4 @@ resource "aws_s3_bucket" "datalake" {
       CURSO = "EDC22"
     }
 }
+#teste

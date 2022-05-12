@@ -10,3 +10,9 @@ variable "numero_conta_aws" {
     default = "088169094135"
   
 }
+
+variable "aws_region" {
+    default = "us-east-2"
+  
+}
+}
