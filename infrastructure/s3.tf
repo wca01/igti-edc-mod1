@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "datalake" {
+resource "aws-s3-bucket" "datalake" {
     #parametros config do recurso
     bucket = "$(var.base-bucket-name)-$(var.ambiente)-$(var.numero-conta-aws)"
     acl = "private"
