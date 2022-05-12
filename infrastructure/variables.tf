@@ -1,4 +1,4 @@
-variable "base_bucket_name" {
+variable "base-bucket-name" {
   default = "datalake-igti-edc-tf"
   }
 
@@ -6,10 +6,10 @@ variable "ambiente" {
   default = "ESTUDO"
   }
 
-variable "numero_conta_aws" {
+variable "numero-conta-aws" {
   default = "088169094135"
   }
 
-variable "aws_region" {
+variable "aws-region" {
   default = "us-east-2"
   }
