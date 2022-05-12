@@ -1,4 +1,4 @@
-variable "base-bucket-name" {
+variable "base_bucket_name" {
   default = "datalake-igti-edc-tf"
   }
 

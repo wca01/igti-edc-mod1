@@ -1,4 +1,4 @@
-resource "aws-s3-bucket-object" "job_spark" {
+resource "aws_s3_bucket_object" "job_spark" {
     bucket = aws-s3-bucket.datalake.id
     key = "emr-code/pyspark/job_spark_from_tf.py"
     acl = "private"
