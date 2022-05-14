@@ -26,7 +26,7 @@ from delta.tables import *
 logger.info("Produzindo novos dados...")
 rais = (
     spark.read.format("delta")
-    .load("s3://datalake-igti-edc-tf/staging-zone/rais")
+    .load("s3://datalake-igti-edc-tf-final/staging-zone/rais")
 )
 
 # Corrigir nomes das clunas
@@ -128,7 +128,7 @@ rais = (
     .write.mode('overwrite')
     .partitionBy('ano', 'uf')
     .format('parquet')
-    .save('s3://datalake-igti-edc-tf/staging-zone/rais/')
+    .save('s3://datalake-igti-edc-tf-final/staging-zone/rais/')
 )
 
 logger.info("Atualizacao completa! \n\n")
