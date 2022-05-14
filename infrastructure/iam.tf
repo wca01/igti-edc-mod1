@@ -94,12 +94,7 @@ resource "aws_s3_bucket" "storage" {
 }
 EOF
 
-  tags {
-    Name = "datalake-igti-edc-tf"
-    Role = "storage"
-  }
-
-  lifecycle {
+lifecycle {
     create_before_destroy = true
   }
 }
