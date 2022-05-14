@@ -73,7 +73,7 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
 }
 
 ## editado delete bucket
-resource "aws_s3_bucket" "dl" {
+resource "aws_s3_bucket" "storage" {
   bucket = "datalake-igti-edc-tf"
   acl = "private"                                                                                                                                                                                                                          
   force_destroy = true
