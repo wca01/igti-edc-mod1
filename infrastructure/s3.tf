@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "datalake" {
+resource "aws_s3_bucket" "dl" {
     #parametros config do recurso
     bucket = "datalake-igti-edc-tf"
     acl = "private"
@@ -15,4 +15,3 @@ resource "aws_s3_bucket" "datalake" {
       CURSO = "EDC22"
     }
 }
-#teste

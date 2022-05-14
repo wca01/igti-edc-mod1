@@ -1,4 +1,4 @@
-name: Test on PR
+name: Test on PR # Pull Request
 
 on:
   pull_request:
@@ -26,6 +26,10 @@ jobs:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws-secret-access-key: ${{secrets.AWS_SECRET_KEY}}
           aws-region: us-east-2
+
+      - name: Build Lambda package
+        run: |
+          sh scripts/build_lambda_package.sh
 
       - name: IaC Apply
         env:
