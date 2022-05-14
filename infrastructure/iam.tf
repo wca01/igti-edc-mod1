@@ -72,3 +72,34 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
   policy_arn = aws_iam_policy.lambda.arn
 }
 
+## editado delete bucket
+resource "aws_s3_bucket" "dl" {
+  bucket = "datalake-igti-edc-tf"
+  acl = "private"                                                                                                                                                                                                                          
+  force_destroy = true
+  versioning {
+    enabled = true                                                                                                                                                                                                                         
+  }
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect":"Allow",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::datalake-igti-edc-tf", "arn:aws:s3:::datalake-igti-edc-tf/*"],
+      "Principal": "*",
+     }
+  ]
+}
+EOF
+
+  tags {
+    Name = "datalake-igti-edc-tf"
+    Role = "storage"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
