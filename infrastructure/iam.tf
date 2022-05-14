@@ -80,6 +80,8 @@ resource "aws_s3_bucket" "storage" {
   versioning {
     enabled = true                                                                                                                                                                                                                         
   }
+}
+
   policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -92,9 +94,9 @@ resource "aws_s3_bucket" "storage" {
      }
   ]
 }
-EOF
 
-lifecycle {
+EOF 
+
+  lifecycle {
     create_before_destroy = true
   }
-}
