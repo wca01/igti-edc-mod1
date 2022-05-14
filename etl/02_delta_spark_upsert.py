@@ -7,7 +7,7 @@ from pyspark.sql.functions import col, min, max, lit
 
 # Configuracao de logs de aplicacao
 logging.basicConfig(stream=sys.stdout)
-logger = logging.getLogger('datalake_enem_small_upsert')
+logger = logging.getLogger('datalake_rais_small_upsert')
 logger.setLevel(logging.DEBUG)
 
 # Definicao da Spark Session
@@ -26,7 +26,7 @@ from delta.tables import *
 logger.info("Produzindo novos dados...")
 rais = (
     spark.read.format("delta")
-    .load("s3://datalake-igti-edc-tf-final/staging-zone/rais")
+    .load("s3://datalake-wca-igti-edc/staging/rais/")
 )
 
 # Corrigir nomes das clunas
@@ -128,7 +128,7 @@ rais = (
     .write.mode('overwrite')
     .partitionBy('ano', 'uf')
     .format('parquet')
-    .save('s3://datalake-igti-edc-tf-final/staging-zone/rais/')
+    .save('s3://datalake-wca-igti-edc/staging/rais_tratado/')
 )
 
 logger.info("Atualizacao completa! \n\n")
